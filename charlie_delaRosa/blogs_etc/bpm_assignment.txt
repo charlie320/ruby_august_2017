@@ -1,0 +1,607 @@
+2.3.1 :002 > User.create(first_name:"John", last_name:"Doe", email_address:"john@doe.com")
+   (0.1ms)  begin transaction
+  User Exists (0.8ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('john@doe.com') LIMIT 1
+  SQL (1.5ms)  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "John"], ["last_name", "Doe"], ["email_address", "john@doe.com"], ["created_at", "2017-08-05 17:49:51.967837"], ["updated_at", "2017-08-05 17:49:51.967837"]]
+   (3.3ms)  commit transaction
++----+------------+-----------+---------------+---------------+----------------+
+| id | first_name | last_name | email_address | created_at    | updated_at     |
++----+------------+-----------+---------------+---------------+----------------+
+| 1  | John       | Doe       | john@doe.com  | 2017-08-05... | 2017-08-05 ... |
++----+------------+-----------+---------------+---------------+----------------+
+1 row in set
+2.3.1 :003 > User.create(first_name:"Jane", last_name:"Doe", email_address:"jane@doe.com")
+   (0.1ms)  begin transaction
+  User Exists (1.5ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('jane@doe.com') LIMIT 1
+  SQL (2.1ms)  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Jane"], ["last_name", "Doe"], ["email_address", "jane@doe.com"], ["created_at", "2017-08-05 17:50:16.320954"], ["updated_at", "2017-08-05 17:50:16.320954"]]
+   (2.6ms)  commit transaction
++----+------------+-----------+---------------+---------------+----------------+
+| id | first_name | last_name | email_address | created_at    | updated_at     |
++----+------------+-----------+---------------+---------------+----------------+
+| 2  | Jane       | Doe       | jane@doe.com  | 2017-08-05... | 2017-08-05 ... |
++----+------------+-----------+---------------+---------------+----------------+
+1 row in set
+2.3.1 :004 > User.create(first_name:"James", last_name:"Doe", email_address:"james@doe.com")
+   (0.1ms)  begin transaction
+  User Exists (1.3ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('james@doe.com') LIMIT 1
+  SQL (3.1ms)  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "James"], ["last_name", "Doe"], ["email_address", "james@doe.com"], ["created_at", "2017-08-05 17:50:37.978706"], ["updated_at", "2017-08-05 17:50:37.978706"]]
+   (2.5ms)  commit transaction
++----+------------+-----------+---------------+---------------+----------------+
+| id | first_name | last_name | email_address | created_at    | updated_at     |
++----+------------+-----------+---------------+---------------+----------------+
+| 3  | James      | Doe       | james@doe.com | 2017-08-05... | 2017-08-05 ... |
++----+------------+-----------+---------------+---------------+----------------+
+1 row in set
+2.3.1 :005 > User.create(first_name:"Mary", last_name:"Doe", email_address:"mary@doe.com")
+   (0.1ms)  begin transaction
+  User Exists (1.6ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('mary@doe.com') LIMIT 1
+  SQL (2.9ms)  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Mary"], ["last_name", "Doe"], ["email_address", "mary@doe.com"], ["created_at", "2017-08-05 17:51:14.814838"], ["updated_at", "2017-08-05 17:51:14.814838"]]
+   (1.8ms)  commit transaction
++----+------------+-----------+---------------+---------------+----------------+
+| id | first_name | last_name | email_address | created_at    | updated_at     |
++----+------------+-----------+---------------+---------------+----------------+
+| 4  | Mary       | Doe       | mary@doe.com  | 2017-08-05... | 2017-08-05 ... |
++----+------------+-----------+---------------+---------------+----------------+
+1 row in set
+2.3.1 :006 > User.create(first_name:"Jennifer", last_name:"Doe", email_address:"jenn@doe.com")
+   (0.1ms)  begin transaction
+  User Exists (1.5ms)  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email_address") = LOWER('jenn@doe.com') LIMIT 1
+  SQL (3.0ms)  INSERT INTO "users" ("first_name", "last_name", "email_address", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["first_name", "Jennifer"], ["last_name", "Doe"], ["email_address", "jenn@doe.com"], ["created_at", "2017-08-05 17:51:37.385888"], ["updated_at", "2017-08-05 17:51:37.385888"]]
+   (2.6ms)  commit transaction
++----+------------+-----------+---------------+---------------+----------------+
+| id | first_name | last_name | email_address | created_at    | updated_at     |
++----+------------+-----------+---------------+---------------+----------------+
+| 5  | Jennifer   | Doe       | jenn@doe.com  | 2017-08-05... | 2017-08-05 ... |
++----+------------+-----------+---------------+---------------+----------------+
+1 row in set
+2.3.1 :007 >
+
+
+********************************************************************************
+//*************First blog
+2.3.1 :009 > Blog.create(name:"Travel", description:"Stories about your travel adventures")
+   (0.1ms)  begin transaction
+  SQL (4.7ms)  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Travel"], ["description", "Stories about your travel adventures"], ["created_at", "2017-08-05 18:08:08.429556"], ["updated_at", "2017-08-05 18:08:08.429556"]]
+   (2.5ms)  commit transaction
++----+--------+---------------------+--------------------+---------------------+
+| id | name   | description         | created_at         | updated_at          |
++----+--------+---------------------+--------------------+---------------------+
+| 1  | Travel | Stories about yo... | 2017-08-05 18:0... | 2017-08-05 18:08... |
++----+--------+---------------------+--------------------+---------------------+
+1 row in set
+
+//*************Second blog
+2.3.1 :004 > Blog.create(name:"Cooking", description:"Share your best recipes")
+   (0.1ms)  begin transaction
+  SQL (2.7ms)  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Cooking"], ["description", "Share your best recipes"], ["created_at", "2017-08-05 18:14:55.714212"], ["updated_at", "2017-08-05 18:14:55.714212"]]
+  SQL (0.7ms)  INSERT INTO "owners" ("blog_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["blog_id", 2], ["created_at", "2017-08-05 18:14:55.718890"], ["updated_at", "2017-08-05 18:14:55.718890"]]
+   (3.9ms)  commit transaction
++----+---------+--------------------+--------------------+---------------------+
+| id | name    | description        | created_at         | updated_at          |
++----+---------+--------------------+--------------------+---------------------+
+| 2  | Cooking | Share your best... | 2017-08-05 18:1... | 2017-08-05 18:14... |
++----+---------+--------------------+--------------------+---------------------+
+1 row in set
+
+//***********First owner
+2.3.1 :003 > Owner.create(user_id:1, blog_id:1)
+   (0.1ms)  begin transaction
+  SQL (2.4ms)  INSERT INTO "owners" ("user_id", "blog_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 1], ["blog_id", 1], ["created_at", "2017-08-05 18:11:22.045164"], ["updated_at", "2017-08-05 18:11:22.045164"]]
+   (2.9ms)  commit transaction
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 1  | 1       | 1       | 2017-08-05 18:11:22 UTC | 2017-08-05 18:11:22 UTC |
++----+---------+---------+-------------------------+-------------------------+
+1 row in set
+2.3.1 :004 >
+
+//************Second owner
+2.3.1 :005 > Owner.all
+  Owner Load (1.6ms)  SELECT "owners".* FROM "owners"
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 1  | 1       | 1       | 2017-08-05 18:11:22 UTC | 2017-08-05 18:11:22 UTC |
+| 2  |         | 2       | 2017-08-05 18:14:55 UTC | 2017-08-05 18:14:55 UTC |
++----+---------+---------+-------------------------+-------------------------+
+2 rows in set
+2.3.1 :006 >
+
+
+//*****************create third blog and third owner
+2.3.1 :002 > Blog.create(name:"Hiking", description:"Share your favorite hiking trails")
+   (0.1ms)  begin transaction
+  SQL (2.2ms)  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Hiking"], ["description", "Share your favorite hiking trails"], ["created_at", "2017-08-05 18:27:42.203821"], ["updated_at", "2017-08-05 18:27:42.203821"]]
+  SQL (2.4ms)  INSERT INTO "owners" ("blog_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["blog_id", 3], ["created_at", "2017-08-05 18:27:42.230553"], ["updated_at", "2017-08-05 18:27:42.230553"]]
+   (3.7ms)  commit transaction
++----+--------+---------------------+--------------------+---------------------+
+| id | name   | description         | created_at         | updated_at          |
++----+--------+---------------------+--------------------+---------------------+
+| 3  | Hiking | Share your favor... | 2017-08-05 18:2... | 2017-08-05 18:27... |
++----+--------+---------------------+--------------------+---------------------+
+1 row in set
+2.3.1 :003 > Owner.all
+  Owner Load (1.7ms)  SELECT "owners".* FROM "owners"
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 1  | 1       | 1       | 2017-08-05 18:11:22 UTC | 2017-08-05 18:11:22 UTC |
+| 2  |         | 2       | 2017-08-05 18:14:55 UTC | 2017-08-05 18:14:55 UTC |
+| 3  |         | 3       | 2017-08-05 18:27:42 UTC | 2017-08-05 18:27:42 UTC |
++----+---------+---------+-------------------------+-------------------------+
+3 rows in set
+2.3.1 :004 >
+
+
+//**************Assign owner user_id values
+
+2.3.1 :049 > Owner.where(id: 2..3).each do |owner|
+2.3.1 :050 >   owner.user_id=1
+2.3.1 :051?>   owner.save
+2.3.1 :052?>   end
+  Owner Load (1.7ms)  SELECT "owners".* FROM "owners" WHERE ("owners"."id" BETWEEN 2 AND 3)
+   (0.1ms)  begin transaction
+  SQL (4.2ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 1], ["updated_at", "2017-08-05 18:49:11.479369"], ["id", 2]]
+   (2.8ms)  commit transaction
+   (0.0ms)  begin transaction
+  SQL (1.6ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 1], ["updated_at", "2017-08-05 18:49:11.490208"], ["id", 3]]
+   (360.1ms)  commit transaction
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 2  | 1       | 2       | 2017-08-05 18:14:55 UTC | 2017-08-05 18:49:11 UTC |
+| 3  | 1       | 3       | 2017-08-05 18:27:42 UTC | 2017-08-05 18:49:11 UTC |
++----+---------+---------+-------------------------+-------------------------+
+2 rows in set
+2.3.1 :053 > Owner.all
+  Owner Load (1.7ms)  SELECT "owners".* FROM "owners"
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 1  | 1       | 1       | 2017-08-05 18:11:22 UTC | 2017-08-05 18:11:22 UTC |
+| 2  | 1       | 2       | 2017-08-05 18:14:55 UTC | 2017-08-05 18:49:11 UTC |
+| 3  | 1       | 3       | 2017-08-05 18:27:42 UTC | 2017-08-05 18:49:11 UTC |
++----+---------+---------+-------------------------+-------------------------+
+3 rows in set
+2.3.1 :054 >
+
+//*************create fourth blog
+2.3.1 :005 > Blog.create(name:"Relationships", description:"Share your relationship wisdom with the world.")
+   (0.1ms)  begin transaction
+  SQL (4.7ms)  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Relationships"], ["description", "Share your relationship wisdom with the world."], ["created_at", "2017-08-05 20:33:57.407190"], ["updated_at", "2017-08-05 20:33:57.407190"]]
+  SQL (1.3ms)  INSERT INTO "owners" ("blog_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["blog_id", 4], ["created_at", "2017-08-05 20:33:57.436751"], ["updated_at", "2017-08-05 20:33:57.436751"]]
+   (2.6ms)  commit transaction
++----+---------------+------------------+------------------+-------------------+
+| id | name          | description      | created_at       | updated_at        |
++----+---------------+------------------+------------------+-------------------+
+| 4  | Relationships | Share your re... | 2017-08-05 20... | 2017-08-05 20:... |
++----+---------------+------------------+------------------+-------------------+
+1 row in set
+
+//***********create fifth blog
+2.3.1 :024 > Blog.create(name:"Ruby on Rails", description:"Share your experiences and knowledge related to Rails.")
+   (0.1ms)  begin transaction
+  SQL (4.7ms)  INSERT INTO "blogs" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Ruby on Rails"], ["description", "Share your experiences and knowledge related to Rails."], ["created_at", "2017-08-05 20:39:14.940452"], ["updated_at", "2017-08-05 20:39:14.940452"]]
+  SQL (0.8ms)  INSERT INTO "owners" ("blog_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["blog_id", 5], ["created_at", "2017-08-05 20:39:14.946906"], ["updated_at", "2017-08-05 20:39:14.946906"]]
+   (3.3ms)  commit transaction
++----+---------------+------------------+------------------+-------------------+
+| id | name          | description      | created_at       | updated_at        |
++----+---------------+------------------+------------------+-------------------+
+| 5  | Ruby on Rails | Share your ex... | 2017-08-05 20... | 2017-08-05 20:... |
++----+---------------+------------------+------------------+-------------------+
+1 row in set
+
+//************Assign User 2 to blog 4 and 5
+
+2.3.1 :026 > Owner.where(id: 4..5).each do |owner|
+2.3.1 :027 >     owner.user_id=2
+2.3.1 :028?>   owner.save
+2.3.1 :029?>   end
+  Owner Load (10.7ms)  SELECT "owners".* FROM "owners" WHERE ("owners"."id" BETWEEN 4 AND 5)
+   (0.1ms)  begin transaction
+  SQL (2.0ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 2], ["updated_at", "2017-08-05 20:42:31.109158"], ["id", 4]]
+   (1.8ms)  commit transaction
+   (0.1ms)  begin transaction
+  SQL (2.4ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 2], ["updated_at", "2017-08-05 20:42:31.116244"], ["id", 5]]
+   (5.6ms)  commit transaction
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 4  | 2       | 4       | 2017-08-05 20:33:57 UTC | 2017-08-05 20:42:31 UTC |
+| 5  | 2       | 5       | 2017-08-05 20:39:14 UTC | 2017-08-05 20:42:31 UTC |
++----+---------+---------+-------------------------+-------------------------+
+2 rows in set
+2.3.1 :030 >
+
+//**************Fifth blog owned by last user
+2.3.1 :037 > Owner.find(5).update(user_id:User.last.id)
+  Owner Load (1.7ms)  SELECT  "owners".* FROM "owners" WHERE "owners"."id" = ? LIMIT 1  [["id", 5]]
+  User Load (1.3ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+   (0.1ms)  begin transaction
+  SQL (2.1ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 5], ["updated_at", "2017-08-05 20:52:22.427806"], ["id", 5]]
+   (2.5ms)  commit transaction
+ => true
+2.3.1 :038 > Owner.all
+  Owner Load (1.8ms)  SELECT "owners".* FROM "owners"
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 1  | 1       | 1       | 2017-08-05 18:11:22 UTC | 2017-08-05 18:11:22 UTC |
+| 2  | 1       | 2       | 2017-08-05 18:14:55 UTC | 2017-08-05 18:49:11 UTC |
+| 3  | 1       | 3       | 2017-08-05 18:27:42 UTC | 2017-08-05 18:49:11 UTC |
+| 4  | 2       | 4       | 2017-08-05 20:33:57 UTC | 2017-08-05 20:42:31 UTC |
+| 5  | 5       | 5       | 2017-08-05 20:39:14 UTC | 2017-08-05 20:52:22 UTC |
++----+---------+---------+-------------------------+-------------------------+
+5 rows in set
+2.3.1 :039 >
+
+//*************third user owns all blogs
+2.3.1 :039 > owners = Owner.all.each do |owner|
+2.3.1 :040 >     owner.user_id = 3
+2.3.1 :041?>   owner.save
+2.3.1 :042?>   end
+  Owner Load (1.7ms)  SELECT "owners".* FROM "owners"
+   (0.1ms)  begin transaction
+  SQL (4.5ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 3], ["updated_at", "2017-08-05 20:55:27.383598"], ["id", 1]]
+   (3.1ms)  commit transaction
+   (0.1ms)  begin transaction
+  SQL (3.2ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 3], ["updated_at", "2017-08-05 20:55:27.394224"], ["id", 2]]
+   (4.2ms)  commit transaction
+   (0.1ms)  begin transaction
+  SQL (3.0ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 3], ["updated_at", "2017-08-05 20:55:27.405413"], ["id", 3]]
+   (2.3ms)  commit transaction
+   (0.1ms)  begin transaction
+  SQL (2.5ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 3], ["updated_at", "2017-08-05 20:55:27.414839"], ["id", 4]]
+   (2.4ms)  commit transaction
+   (0.1ms)  begin transaction
+  SQL (2.9ms)  UPDATE "owners" SET "user_id" = ?, "updated_at" = ? WHERE "owners"."id" = ?  [["user_id", 3], ["updated_at", "2017-08-05 20:55:27.422763"], ["id", 5]]
+   (2.0ms)  commit transaction
++----+---------+---------+-------------------------+-------------------------+
+| id | user_id | blog_id | created_at              | updated_at              |
++----+---------+---------+-------------------------+-------------------------+
+| 1  | 3       | 1       | 2017-08-05 18:11:22 UTC | 2017-08-05 20:55:27 UTC |
+| 2  | 3       | 2       | 2017-08-05 18:14:55 UTC | 2017-08-05 20:55:27 UTC |
+| 3  | 3       | 3       | 2017-08-05 18:27:42 UTC | 2017-08-05 20:55:27 UTC |
+| 4  | 3       | 4       | 2017-08-05 20:33:57 UTC | 2017-08-05 20:55:27 UTC |
+| 5  | 3       | 5       | 2017-08-05 20:39:14 UTC | 2017-08-05 20:55:27 UTC |
++----+---------+---------+-------------------------+-------------------------+
+5 rows in set
+2.3.1 :043 >
+
+//**************Three posts for blog 2 by first user
+2.3.1 :046 > Post.create(user:User.first, blog:Blog.find(2), title:"Loved the dish", content:"Thank you so much for sharing the dish.  Everyone thought is was fabulous.")
+  User Load (1.8ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  Blog Load (1.6ms)  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+   (0.1ms)  begin transaction
+  SQL (2.8ms)  INSERT INTO "posts" ("user_id", "blog_id", "title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["blog_id", 2], ["title", "Loved the dish"], ["content", "Thank you so much for sharing the dish.  Everyone thought is was fabulous."], ["created_at", "2017-08-05 21:05:04.432854"], ["updated_at", "2017-08-05 21:05:04.432854"]]
+   (1.5ms)  commit transaction
++----+-------------+------------+---------+---------+------------+-------------+
+| id | title       | content    | user_id | blog_id | created_at | updated_at  |
++----+-------------+------------+---------+---------+------------+-------------+
+| 1  | Loved th... | Thank y... | 1       | 2       | 2017-08... | 2017-08-... |
++----+-------------+------------+---------+---------+------------+-------------+
+1 row in set
+2.3.1 :047 > Post.create(user:User.first, blog:Blog.find(2), title:"Delicious!", content:"Wonderful dish.  Well done!")
+  User Load (2.1ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  Blog Load (1.5ms)  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+   (0.1ms)  begin transaction
+  SQL (4.1ms)  INSERT INTO "posts" ("user_id", "blog_id", "title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["blog_id", 2], ["title", "Delicious!"], ["content", "Wonderful dish.  Well done!"], ["created_at", "2017-08-05 21:06:21.933825"], ["updated_at", "2017-08-05 21:06:21.933825"]]
+   (3.9ms)  commit transaction
++----+------------+------------+---------+---------+------------+--------------+
+| id | title      | content    | user_id | blog_id | created_at | updated_at   |
++----+------------+------------+---------+---------+------------+--------------+
+| 2  | Delicious! | Wonderf... | 1       | 2       | 2017-08... | 2017-08-0... |
++----+------------+------------+---------+---------+------------+--------------+
+1 row in set
+2.3.1 :048 > Post.create(user:User.first, blog:Blog.find(2), title:"Help!", content:"Not sure what happened.  Couldn't get it to taste right.")
+  User Load (2.0ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+  Blog Load (1.1ms)  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 2]]
+   (0.1ms)  begin transaction
+  SQL (2.4ms)  INSERT INTO "posts" ("user_id", "blog_id", "title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 1], ["blog_id", 2], ["title", "Help!"], ["content", "Not sure what happened.  Couldn't get it to taste right."], ["created_at", "2017-08-05 21:07:22.021213"], ["updated_at", "2017-08-05 21:07:22.021213"]]
+   (2.4ms)  commit transaction
++----+-------+--------------+---------+---------+--------------+---------------+
+| id | title | content      | user_id | blog_id | created_at   | updated_at    |
++----+-------+--------------+---------+---------+--------------+---------------+
+| 3  | Help! | Not sure ... | 1       | 2       | 2017-08-0... | 2017-08-05... |
++----+-------+--------------+---------+---------+--------------+---------------+
+1 row in set
+2.3.1 :049 >
+
+//*****************Second user create multiple posts for last Blog
+2.3.1 :049 > Post.create(user:User.second, blog:Blog.last, title:"Setting up Rails", content:"I am finally up and running.  Thanks to all.")
+  User Load (2.1ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  Blog Load (1.5ms)  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1
+   (0.1ms)  begin transaction
+  SQL (2.6ms)  INSERT INTO "posts" ("user_id", "blog_id", "title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 2], ["blog_id", 5], ["title", "Setting up Rails"], ["content", "I am finally up and running.  Thanks to all."], ["created_at", "2017-08-05 21:10:50.214979"], ["updated_at", "2017-08-05 21:10:50.214979"]]
+   (2.4ms)  commit transaction
++----+-------------+------------+---------+---------+------------+-------------+
+| id | title       | content    | user_id | blog_id | created_at | updated_at  |
++----+-------------+------------+---------+---------+------------+-------------+
+| 4  | Setting ... | I am fi... | 2       | 5       | 2017-08... | 2017-08-... |
++----+-------------+------------+---------+---------+------------+-------------+
+1 row in set
+2.3.1 :050 > Post.create(user:User.second, blog:Blog.last, title:"Models and Relationships", content:"Learned about models and relationships today.")
+  User Load (1.9ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 1
+  Blog Load (1.0ms)  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" DESC LIMIT 1
+   (0.1ms)  begin transaction
+  SQL (3.2ms)  INSERT INTO "posts" ("user_id", "blog_id", "title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 2], ["blog_id", 5], ["title", "Models and Relationships"], ["content", "Learned about models and relationships today."], ["created_at", "2017-08-05 21:12:25.303534"], ["updated_at", "2017-08-05 21:12:25.303534"]]
+   (2.5ms)  commit transaction
++----+-------------+------------+---------+---------+------------+-------------+
+| id | title       | content    | user_id | blog_id | created_at | updated_at  |
++----+-------------+------------+---------+---------+------------+-------------+
+| 5  | Models a... | Learned... | 2       | 5       | 2017-08... | 2017-08-... |
++----+-------------+------------+---------+---------+------------+-------------+
+1 row in set
+2.3.1 :051 >
+
+//*******************3rd user posting on multiple blogs
+2.3.1 :051 > Post.create(user:User.third, blog:Blog.first, title:"Viva Mexico!", content:"Traveled to Mexico.  Had a great time.")
+  User Load (1.8ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  Blog Load (1.6ms)  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1
+   (0.1ms)  begin transaction
+  SQL (2.8ms)  INSERT INTO "posts" ("user_id", "blog_id", "title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 3], ["blog_id", 1], ["title", "Viva Mexico!"], ["content", "Traveled to Mexico.  Had a great time."], ["created_at", "2017-08-05 21:14:42.729194"], ["updated_at", "2017-08-05 21:14:42.729194"]]
+   (2.6ms)  commit transaction
++----+-------------+------------+---------+---------+------------+-------------+
+| id | title       | content    | user_id | blog_id | created_at | updated_at  |
++----+-------------+------------+---------+---------+------------+-------------+
+| 6  | Viva Mex... | Travele... | 3       | 1       | 2017-08... | 2017-08-... |
++----+-------------+------------+---------+---------+------------+-------------+
+1 row in set
+2.3.1 :052 > Post.create(user:User.third, blog:Blog.third, title:"Yosemite", content:"What an awesome place.  You all have to visit.")
+  User Load (1.7ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+  Blog Load (1.6ms)  SELECT  "blogs".* FROM "blogs"  ORDER BY "blogs"."id" ASC LIMIT 1 OFFSET 2
+   (0.1ms)  begin transaction
+  SQL (2.9ms)  INSERT INTO "posts" ("user_id", "blog_id", "title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["user_id", 3], ["blog_id", 3], ["title", "Yosemite"], ["content", "What an awesome place.  You all have to visit."], ["created_at", "2017-08-05 21:16:13.723805"], ["updated_at", "2017-08-05 21:16:13.723805"]]
+   (2.5ms)  commit transaction
++----+----------+-------------+---------+---------+-------------+--------------+
+| id | title    | content     | user_id | blog_id | created_at  | updated_at   |
++----+----------+-------------+---------+---------+-------------+--------------+
+| 7  | Yosemite | What an ... | 3       | 3       | 2017-08-... | 2017-08-0... |
++----+----------+-------------+---------+---------+-------------+--------------+
+1 row in set
+2.3.1 :053 >
+
+//******************third user posting on first and second
+2.3.1 :054 > Message.create(post:Post.first, user:User.third, author:"Me", message:"Enjoyed your post.  Keep on sharing!")
+  Post Load (1.2ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1
+  User Load (0.8ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+   (0.1ms)  begin transaction
+  SQL (3.5ms)  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 1], ["user_id", 3], ["author", "Me"], ["message", "Enjoyed your post.  Keep on sharing!"], ["created_at", "2017-08-05 21:20:30.817499"], ["updated_at", "2017-08-05 21:20:30.817499"]]
+   (1.6ms)  commit transaction
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 1  | Me     | Enjoyed y... | 3       | 1       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+1 row in set
+2.3.1 :055 > Message.create(post:Post.second, user:User.third, author:"Me", message:"Enjoyed your post.  Keep on sharing!")
+  Post Load (2.1ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1
+  User Load (1.6ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 2
+   (0.1ms)  begin transaction
+  SQL (3.5ms)  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 2], ["user_id", 3], ["author", "Me"], ["message", "Enjoyed your post.  Keep on sharing!"], ["created_at", "2017-08-05 21:21:30.910397"], ["updated_at", "2017-08-05 21:21:30.910397"]]
+   (2.9ms)  commit transaction
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 2  | Me     | Enjoyed y... | 3       | 2       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+1 row in set
+2.3.1 :056 >
+
+//***************fourth user create messages for last post created
+2.3.1 :058 > Message.create(post:Post.last, user:User.fourth, author:"Me", message:"Enjoyed your post.  Keep on sharing!")
+  Post Load (2.0ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  User Load (1.2ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 3
+   (0.1ms)  begin transaction
+  SQL (3.1ms)  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 7], ["user_id", 4], ["author", "Me"], ["message", "Enjoyed your post.  Keep on sharing!"], ["created_at", "2017-08-05 21:23:03.389049"], ["updated_at", "2017-08-05 21:23:03.389049"]]
+   (2.6ms)  commit transaction
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 3  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+1 row in set
+2.3.1 :059 > Message.create(post:Post.last, user:User.fourth, author:"Me", message:"Enjoyed your post.  Keep on sharing!")
+  Post Load (2.0ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  User Load (1.4ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 3
+   (0.0ms)  begin transaction
+  SQL (2.3ms)  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 7], ["user_id", 4], ["author", "Me"], ["message", "Enjoyed your post.  Keep on sharing!"], ["created_at", "2017-08-05 21:23:12.019611"], ["updated_at", "2017-08-05 21:23:12.019611"]]
+   (2.5ms)  commit transaction
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 4  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+1 row in set
+2.3.1 :060 > Message.create(post:Post.last, user:User.fourth, author:"Me", message:"Enjoyed your post.  Keep on sharing!")
+  Post Load (1.6ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  User Load (0.9ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1 OFFSET 3
+   (0.1ms)  begin transaction
+  SQL (4.2ms)  INSERT INTO "messages" ("post_id", "user_id", "author", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["post_id", 7], ["user_id", 4], ["author", "Me"], ["message", "Enjoyed your post.  Keep on sharing!"], ["created_at", "2017-08-05 21:23:13.626509"], ["updated_at", "2017-08-05 21:23:13.626509"]]
+   (3.0ms)  commit transaction
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 5  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+1 row in set
+2.3.1 :061 >
+
+//*****************Change owner of second post to last user
+2.3.1 :070 > Post.second.update(user:User.last)
+  Post Load (2.0ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1
+  User Load (1.3ms)  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+   (0.1ms)  begin transaction
+  SQL (2.5ms)  UPDATE "posts" SET "user_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["user_id", 5], ["updated_at", "2017-08-05 21:27:20.825019"], ["id", 2]]
+   (2.4ms)  commit transaction
+ => true
+2.3.1 :071 > Post.second
+  Post Load (1.9ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1
++----+------------+------------+---------+---------+------------+--------------+
+| id | title      | content    | user_id | blog_id | created_at | updated_at   |
++----+------------+------------+---------+---------+------------+--------------+
+| 2  | Delicious! | Wonderf... | 5       | 2       | 2017-08... | 2017-08-0... |
++----+------------+------------+---------+---------+------------+--------------+
+1 row in set
+2.3.1 :072 >
+
+//******************change second post content to something else
+2.3.1 :072 > Post.second.update(content:"Something else.")
+  Post Load (1.9ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1
+   (0.1ms)  begin transaction
+  SQL (3.9ms)  UPDATE "posts" SET "content" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["content", "Something else."], ["updated_at", "2017-08-05 21:29:00.096776"], ["id", 2]]
+   (2.9ms)  commit transaction
+ => true
+2.3.1 :073 > Post.second
+  Post Load (1.9ms)  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1 OFFSET 1
++----+------------+------------+---------+---------+-------------+-------------+
+| id | title      | content    | user_id | blog_id | created_at  | updated_at  |
++----+------------+------------+---------+---------+-------------+-------------+
+| 2  | Delicious! | Somethi... | 5       | 2       | 2017-08-... | 2017-08-... |
++----+------------+------------+---------+---------+-------------+-------------+
+1 row in set
+2.3.1 :074 >
+
+//***************retrieve all blogs owned by third user
+2.3.1 :074 > User.find(3).blogs
+  User Load (1.8ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Blog Load (1.4ms)  SELECT "blogs".* FROM "blogs" INNER JOIN "owners" ON "blogs"."id" = "owners"."blog_id" WHERE "owners"."user_id" = ?  [["user_id", 3]]
++----+---------------+------------------+------------------+-------------------+
+| id | name          | description      | created_at       | updated_at        |
++----+---------------+------------------+------------------+-------------------+
+| 1  | Travel        | Stories about... | 2017-08-05 18... | 2017-08-05 18:... |
+| 2  | Cooking       | Share your be... | 2017-08-05 18... | 2017-08-05 18:... |
+| 3  | Hiking        | Share your fa... | 2017-08-05 18... | 2017-08-05 18:... |
+| 4  | Relationships | Share your re... | 2017-08-05 20... | 2017-08-05 20:... |
+| 5  | Ruby on Rails | Share your ex... | 2017-08-05 20... | 2017-08-05 20:... |
++----+---------------+------------------+------------------+-------------------+
+5 rows in set
+
+//**************all posts by third user
+2.3.1 :075 > User.find(3).posts
+  User Load (1.7ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Post Load (0.6ms)  SELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?  [["user_id", 3]]
++----+-------------+------------+---------+---------+------------+-------------+
+| id | title       | content    | user_id | blog_id | created_at | updated_at  |
++----+-------------+------------+---------+---------+------------+-------------+
+| 6  | Viva Mex... | Travele... | 3       | 1       | 2017-08... | 2017-08-... |
+| 7  | Yosemite    | What an... | 3       | 3       | 2017-08... | 2017-08-... |
++----+-------------+------------+---------+---------+------------+-------------+
+2 rows in set
+2.3.1 :076 >
+
+//**************messages by third user
+2.3.1 :076 > User.find(3).messages
+  User Load (1.7ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Message Load (0.8ms)  SELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?  [["user_id", 3]]
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 1  | Me     | Enjoyed y... | 3       | 1       | 2017-08-0... | 2017-08-0... |
+| 2  | Me     | Enjoyed y... | 3       | 2       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+2 rows in set
+2.3.1 :077 >
+
+
+//***************all post associated with blog id 5 and who left them
+
+2.3.1 :081 > postings = Blog.find(5).posts
+  Blog Load (2.0ms)  SELECT  "blogs".* FROM "blogs" WHERE "blogs"."id" = ? LIMIT 1  [["id", 5]]
+  Post Load (1.1ms)  SELECT "posts".* FROM "posts" WHERE "posts"."blog_id" = ?  [["blog_id", 5]]
++----+-------------+------------+---------+---------+------------+-------------+
+| id | title       | content    | user_id | blog_id | created_at | updated_at  |
++----+-------------+------------+---------+---------+------------+-------------+
+| 4  | Setting ... | I am fi... | 2       | 5       | 2017-08... | 2017-08-... |
+| 5  | Models a... | Learned... | 2       | 5       | 2017-08... | 2017-08-... |
++----+-------------+------------+---------+---------+------------+-------------+
+2 rows in set
+
+2.3.1 :091 > postings.each do |posting|
+2.3.1 :092 >     puts posting.user.first_name + " " + posting.user.last_name
+2.3.1 :093?>   end
+Jane Doe
+Jane Doe
++----+-------------+------------+---------+---------+------------+-------------+
+| id | title       | content    | user_id | blog_id | created_at | updated_at  |
++----+-------------+------------+---------+---------+------------+-------------+
+| 4  | Setting ... | I am fi... | 2       | 5       | 2017-08... | 2017-08-... |
+| 5  | Models a... | Learned... | 2       | 5       | 2017-08... | 2017-08-... |
++----+-------------+------------+---------+---------+------------+-------------+
+2 rows in set
+2.3.1 :094 >
+
+//**************retrieve messages with specified blog id
+
+2.3.1 :141 > Message.includes(:post).where("posts.blog_id = 3").references(:post)
+  SQL (2.1ms)  SELECT "messages"."id" AS t0_r0, "messages"."author" AS t0_r1, "messages"."message" AS t0_r2, "messages"."user_id" AS t0_r3, "messages"."post_id" AS t0_r4, "messages"."created_at" AS t0_r5, "messages"."updated_at" AS t0_r6, "posts"."id" AS t1_r0, "posts"."title" AS t1_r1, "posts"."content" AS t1_r2, "posts"."user_id" AS t1_r3, "posts"."blog_id" AS t1_r4, "posts"."created_at" AS t1_r5, "posts"."updated_at" AS t1_r6 FROM "messages" LEFT OUTER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (posts.blog_id = 3)
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 3  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
+| 4  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
+| 5  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+3 rows in set
+2.3.1 :142 > Message.includes(:post).where("posts.blog_id = 2").references(:post)
+  SQL (2.2ms)  SELECT "messages"."id" AS t0_r0, "messages"."author" AS t0_r1, "messages"."message" AS t0_r2, "messages"."user_id" AS t0_r3, "messages"."post_id" AS t0_r4, "messages"."created_at" AS t0_r5, "messages"."updated_at" AS t0_r6, "posts"."id" AS t1_r0, "posts"."title" AS t1_r1, "posts"."content" AS t1_r2, "posts"."user_id" AS t1_r3, "posts"."blog_id" AS t1_r4, "posts"."created_at" AS t1_r5, "posts"."updated_at" AS t1_r6 FROM "messages" LEFT OUTER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (posts.blog_id = 2)
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 1  | Me     | Enjoyed y... | 3       | 1       | 2017-08-0... | 2017-08-0... |
+| 2  | Me     | Enjoyed y... | 3       | 2       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+2 rows in set
+2.3.1 :143 >
+
+//*************same as above with inner join
+2.3.1 :143 > Message.joins(:post).where("posts.blog_id = 2")
+  Message Load (2.1ms)  SELECT "messages".* FROM "messages" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (posts.blog_id = 2)
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 1  | Me     | Enjoyed y... | 3       | 1       | 2017-08-0... | 2017-08-0... |
+| 2  | Me     | Enjoyed y... | 3       | 2       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+2 rows in set
+2.3.1 :144 > Message.joins(:post).where("posts.blog_id = 3")
+  Message Load (1.9ms)  SELECT "messages".* FROM "messages" INNER JOIN "posts" ON "posts"."id" = "messages"."post_id" WHERE (posts.blog_id = 3)
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 3  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
+| 4  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
+| 5  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+3 rows in set
+2.3.1 :145 >
+
+//***************with user information
+2.3.1 :155 > message1.each do |post1|
+2.3.1 :156 >     puts post1.user.first_name + " " + post1.user.last_name + " " + post1.user.email_address
+2.3.1 :157?>   end
+Mary Doe mary@doe.com
+Mary Doe mary@doe.com
+Mary Doe mary@doe.com
++----+--------+--------------+---------+---------+--------------+--------------+
+| id | author | message      | user_id | post_id | created_at   | updated_at   |
++----+--------+--------------+---------+---------+--------------+--------------+
+| 3  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
+| 4  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
+| 5  | Me     | Enjoyed y... | 4       | 7       | 2017-08-0... | 2017-08-0... |
++----+--------+--------------+---------+---------+--------------+--------------+
+3 rows in set
+2.3.1 :158 >
+
+//*******************users that own first blog
+2.3.1 :045 > Owner.joins(:user).where("owners.blog_id = 1").select("users.first_name, users.last_name, users.email_address")
+  Owner Load (1.9ms)  SELECT users.first_name, users.last_name, users.email_address FROM "owners" INNER JOIN "users" ON "users"."id" = "owners"."user_id" WHERE (owners.blog_id = 1)
++----+------------+-----------+---------------+
+| id | first_name | last_name | email_address |
++----+------------+-----------+---------------+
+|    | James      | Doe       | james@doe.com |
+|    | John       | Doe       | john@doe.com  |
+|    | Jane       | Doe       | jane@doe.com  |
++----+------------+-----------+---------------+
+3 rows in set
+2.3.1 :046 >
