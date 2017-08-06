@@ -1,0 +1,9 @@
+<h1>Edit User Information</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<form class="" action="/users/edit_user" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <label for="">Name:  </label>
+  <input type="text" name="name" value=<%= @user.name %>>
+  <input type="submit" name="submit" value="Submit"/>
+</form>
