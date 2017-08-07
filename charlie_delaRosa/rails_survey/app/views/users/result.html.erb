@@ -1,0 +1,30 @@
+<h3>Submitted Information</h3>
+
+<% if flash[:success] %>
+  <p><%= flash[:success] %></p>
+<% end %>
+
+<table>
+  <tr>
+    <td>Name:</td>
+    <td><%= @survey[:name] %></td>
+  </tr>
+
+  <tr>
+    <td>Dojo Location:</td>
+    <td><%= @survey[:dojo_location] %></td>
+  </tr>
+
+  <tr>
+    <td>Favorite Language</td>
+    <td><%= @survey[:fav_lang] %></td>
+  </tr>
+
+  <tr>
+    <td>Comment</td>
+    <td><%= @survey[:comment] %></td>
+  </tr>
+</table>
+
+<a href="/">Go Back</a>
+<!-- <button type="button" name="go_back" href="/user">Go Back</button> -->
