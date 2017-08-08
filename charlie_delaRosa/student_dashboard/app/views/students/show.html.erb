@@ -1,2 +1,21 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<h1><%= @thisBranch[:city] %>'s <%= @full_name %></h1>
+<h3>Email: <%= @thisStudent[:email] %></h3>
+
+<h2>Cohort</h2>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+  </tr>
+  <% @cohorts.each do | cohort | %>
+    <tr>
+      <td><%=cohort[:first_name]%></td>
+      <td><%=cohort[:last_name]%></td>
+      <td><%=cohort[:email]%></td>
+    </tr>
+    <% end %>
+</table>
+
+<a href="/">Home</a>
+<a href= '/dojos/<%=@thisBranch[:id]%>/students/<%=@thisStudent[:id]%>/edit'>Edit</a>

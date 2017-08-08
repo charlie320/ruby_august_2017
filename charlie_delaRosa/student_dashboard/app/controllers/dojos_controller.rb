@@ -26,7 +26,6 @@ class DojosController < ApplicationController
     @branch = Dojo.find(params[:id])
     @location = @branch[:branch]
     session[:dojo] = @branch[:id]
-    #puts session[:dojo
     render 'edit'
   end
 

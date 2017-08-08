@@ -1,2 +1,30 @@
-<h1>Students#edit</h1>
-<p>Find me in app/views/students/edit.html.erb</p>
+<h1>Edit Student</h1>
+
+  <form class="" action="/dojos/<%= @dojo_id %>/students/<%= @id %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <table>
+      <tr>
+        <td>First Name:</td>
+        <td><input type="text" name="students[first_name]" value='<%= @thisStudent[:first_name]  %>'></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><input type="text" name="students[last_name]" value='<%=  @thisStudent[:last_name] %>'></td>
+      </tr>
+      <tr>
+        <td>Email Address:</td>
+        <td><input type="text" name="students[email]" value='<%=  @thisStudent[:email] %>'></td>
+      </tr>
+      <tr>
+        <td>Dojo:</td>
+        <td><select class="" name="students[dojo_id]">
+          <option value="3">Burbank</option>
+          <option value="4">Chicago</option>
+        </select></td>
+      </tr>
+    </table>
+    <input type="submit" name="submit" value="Submit">
+  </form>
+
+  <a href="/">Home</a>
+  <a href= '/dojos/<%=@thisBranch[:id]%>/students/<%=@thisStudent[:id]%>'><%= @thisStudent[:first_name]  %></a>

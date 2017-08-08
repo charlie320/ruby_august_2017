@@ -16,12 +16,26 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @thisBranch = Dojo.find(params[:dojo_id])
+    @thisStudent = Student.find(params[:id])
+    @full_name = @thisStudent[:first_name] + " " + @thisStudent[:last_name]
+    @cohorts = Student.where(:dojo_id => @thisBranch[:id]).where.not(:id => params[:id])
   end
 
   def edit
+    @thisBranch = Dojo.find(params[:dojo_id])
+    @thisStudent = Student.find(params[:id])
+    @full_name = @thisStudent[:first_name] + " " + @thisStudent[:last_name]
+    @cohorts = Student.where(:dojo_id => @thisBranch[:id]).where.not(:id => params[:id])
+    @dojo_id = params[:dojo_id]
+    @id = params[:id]
   end
 
   def update
+    @id = params[:id]
+    @dojo_id = params[:dojo_id]
+    Student.update(@id, student_params)
+    redirect_to dojo_path(@dojo_id) # maybe change to :dojo_id from student_params
   end
 
   def destroy
