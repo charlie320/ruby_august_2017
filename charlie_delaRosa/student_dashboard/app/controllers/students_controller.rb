@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
 
   def create
     puts "Made it to the create method"
-    @id = session[:dojo]
+    @id = params[:dojo_id]
     Student.create(student_params)
     redirect_to dojo_path(@id) # maybe change to :dojo_id from student_params
   end
@@ -39,6 +39,8 @@ class StudentsController < ApplicationController
   end
 
   def destroy
+    Student.find(params[:id]).delete
+    redirect_to dojo_path(params[:dojo_id])
   end
 
   private

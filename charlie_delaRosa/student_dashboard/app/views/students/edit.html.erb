@@ -18,8 +18,9 @@
       <tr>
         <td>Dojo:</td>
         <td><select class="" name="students[dojo_id]">
-          <option value="3">Burbank</option>
-          <option value="4">Chicago</option>
+          <% Dojo.all.each do | location | %>
+            <<option value="<%= location[:id] %>"><%= location[:city] %></option>
+          <% end %>
         </select></td>
       </tr>
     </table>
