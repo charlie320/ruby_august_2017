@@ -1,0 +1,13 @@
+<h1><%= @city %> Dojo</h1>
+<div class="">
+  <label for="">Address:</label>
+  <label for=""><%= @street %></label>
+</div>
+<div class="">
+  <label for="">City: </label>
+  <label for=""><%= @city %></label>
+  <label for="">State: </label>
+  <label for=""><%= @state %></label>
+</div>
+<a href="/index">Home</a>
+<%= link_to "Edit", edit_dojo_path(params[:id]) %>

@@ -1,0 +1,26 @@
+<h1>Editing <%= @location %></h1>
+<form class="" action='/dojos/:id' method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <!-- <input type="hidden" name="_method" value="patch"> -->
+  <table>
+    <tr>
+      <th>Branch:</th>
+      <td><input type="text" name="branches[branch]" value='<%=@branch[:branch]%>'></td>
+    </tr>
+    <tr>
+      <th>Street:</th>
+      <td><input type="text" name="branches[street]" value='<%=@branch[:street]%>'></td>
+    </tr>
+    <tr>
+      <th>City:</th>
+      <td><input type="text" name="branches[city]" value='<%=@branch[:city]%>'></td>
+    </tr>
+    <tr>
+      <th>State:</th>
+      <td><input type="text" name="branches[state]" value='<%=@branch[:state]%>'></td>
+    </tr>
+  </table>
+  <input type="submit" name="submit" value="Submit">
+</form>
+<a href="/">Home</a>
+<%= link_to "Show", dojo_path(params[:id]) %>
