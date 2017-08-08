@@ -1,0 +1,30 @@
+<h1>New Student</h1>
+
+  <form class="" action="/dojos/:dojo_id/students" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <table>
+      <tr>
+        <td>First Name:</td>
+        <td><input type="text" name="students[first_name]" value=""></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><input type="text" name="students[last_name]" value=""></td>
+      </tr>
+      <tr>
+        <td>Email Address:</td>
+        <td><input type="text" name="students[email]" value=""></td>
+      </tr>
+      <tr>
+        <td>Dojo:</td>
+        <td><select class="" name="students[dojo_id]">
+          <option value="3">Burbank</option>
+          <option value="4">Chicago</option>
+        </select></td>
+      </tr>
+    </table>
+    <input type="submit" name="submit" value="Submit">
+  </form>
+
+  <a href="/">Home</a>
+  <a href="/dojos/<%=@thisDojo[:id]%>"><%= @thisDojo[:branch] %> </a>

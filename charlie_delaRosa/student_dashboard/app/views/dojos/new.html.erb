@@ -1,0 +1,24 @@
+<h1>New Dojo</h1>
+<form class="" action="/dojos/new" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <table>
+    <tr>
+      <th>Branch:</th>
+      <td><input type="text" name="branches[branch]" value=""></td>
+    </tr>
+    <tr>
+      <th>Street:</th>
+      <td><input type="text" name="branches[street]" value=""></td>
+    </tr>
+    <tr>
+      <th>City:</th>
+      <td><input type="text" name="branches[city]" value=""></td>
+    </tr>
+    <tr>
+      <th>State:</th>
+      <td><input type="text" name="branches[state]" value=""></td>
+    </tr>
+  </table>
+  <input type="submit" name="submit" value="Create">
+</form>
+<a href="/index">Go Back</a>

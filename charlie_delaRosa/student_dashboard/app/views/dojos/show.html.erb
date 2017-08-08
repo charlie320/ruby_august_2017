@@ -1,0 +1,40 @@
+<div class="">
+  <h1><%= @city %> Dojo</h1>
+  <%= link_to "Edit", edit_dojo_path(params[:id]) %>
+</div>
+
+<div class="">
+  <label for="">Address:</label>
+  <label for=""><%= @street %></label>
+</div>
+<div class="">
+  <label for="">City: </label>
+  <label for=""><%= @city %></label>
+  <label for="">State: </label>
+  <label for=""><%= @state %></label>
+</div>
+
+<h2>Student Roster</h2>
+
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  <% Student.where("dojo_id = ?", @branch[:id]).each do |student| %>
+
+  <tr>
+    <td><%= student.first_name %></td>
+    <td><%= student.last_name %></td>
+    <td><%= student.email %></td>
+    <td><%= link_to "Show", students_show_path(@branch[:id],student) %></td>
+    <td><%= link_to "Edit", students_edit_path(@branch[:id],student) %></td>
+    <td><%= link_to "Delete", students_destroy_path(@branch[:id],student), method: :delete, data: {confirm: "Are you sure?"} %></td>
+  </tr>
+  <% end %>
+</table>
+
+<a href="/index">Home</a>
+<%= link_to "Add Student", students_new_path(@branch[:id]) %>
