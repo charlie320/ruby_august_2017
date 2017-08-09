@@ -9,8 +9,17 @@ class DojosController < ApplicationController
   end
 
   def create
-    Dojo.create(dojo_params)
-    redirect_to "/"
+    # Dojo.create(dojo_params)
+    # redirect_to "/"
+
+    @dojo = Dojo.new(dojo_params)
+
+    if @dojo.save
+      redirect_to @dojo, notice: "You have successfully created a Dojo!"
+    else
+      flash[:errors] = @dojo.errors.full_messages
+      redirect_to :back
+end
   end
 
   def show
@@ -30,9 +39,18 @@ class DojosController < ApplicationController
   end
 
   def update
-    @id = session[:dojo]
-    Dojo.update(@id,dojo_params)
-    redirect_to dojo_path(@id)
+    # @id = session[:dojo]
+    # Dojo.update(@id,dojo_params)
+    # redirect_to dojo_path(@id)
+
+    @dojo = Dojo.find(params[:id])
+
+    if @dojo.update(dojo_params)
+      redirect_to @dojo, notice: "You have successfully updated a Dojo!"
+    else
+      flash[:errors] = @dojo.errors.full_messages
+      redirect_to :back
+end
   end
 
   def destroy
@@ -44,4 +62,5 @@ class DojosController < ApplicationController
   def dojo_params
     params.require(:branches).permit(:branch, :street, :city, :state)
   end
+
 end

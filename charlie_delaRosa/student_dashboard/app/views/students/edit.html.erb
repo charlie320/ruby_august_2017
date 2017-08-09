@@ -1,31 +1,37 @@
 <h1>Edit Student</h1>
 
-  <form class="" action="/dojos/<%= @dojo_id %>/students/<%= @id %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <table>
-      <tr>
-        <td>First Name:</td>
-        <td><input type="text" name="students[first_name]" value='<%= @thisStudent[:first_name]  %>'></td>
-      </tr>
-      <tr>
-        <td>Last Name:</td>
-        <td><input type="text" name="students[last_name]" value='<%=  @thisStudent[:last_name] %>'></td>
-      </tr>
-      <tr>
-        <td>Email Address:</td>
-        <td><input type="text" name="students[email]" value='<%=  @thisStudent[:email] %>'></td>
-      </tr>
-      <tr>
-        <td>Dojo:</td>
-        <td><select class="" name="students[dojo_id]">
-          <% Dojo.all.each do | location | %>
-            <<option value="<%= location[:id] %>"><%= location[:city] %></option>
-          <% end %>
-        </select></td>
-      </tr>
-    </table>
-    <input type="submit" name="submit" value="Submit">
-  </form>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+		<p><%= e %></p>
+	<% end %>
+<% end %>
 
-  <a href="/">Home</a>
-  <a href= '/dojos/<%=@thisBranch[:id]%>/students/<%=@thisStudent[:id]%>'><%= @thisStudent[:first_name]  %></a>
+<form class="" action="/dojos/<%= @dojo_id %>/students/<%= @id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <table>
+    <tr>
+      <td>First Name:</td>
+      <td><input type="text" name="students[first_name]" value='<%= @thisStudent[:first_name]  %>'></td>
+    </tr>
+    <tr>
+      <td>Last Name:</td>
+      <td><input type="text" name="students[last_name]" value='<%=  @thisStudent[:last_name] %>'></td>
+    </tr>
+    <tr>
+      <td>Email Address:</td>
+      <td><input type="text" name="students[email]" value='<%=  @thisStudent[:email] %>'></td>
+    </tr>
+    <tr>
+      <td>Dojo:</td>
+      <td><select class="" name="students[dojo_id]">
+        <% Dojo.all.each do | location | %>
+          <<option value="<%= location[:id] %>"><%= location[:city] %></option>
+        <% end %>
+      </select></td>
+    </tr>
+  </table>
+  <input type="submit" name="submit" value="Submit">
+</form>
+
+<a href="/">Home</a>
+<a href= '/dojos/<%=@thisBranch[:id]%>/students/<%=@thisStudent[:id]%>'><%= @thisStudent[:first_name]  %></a>

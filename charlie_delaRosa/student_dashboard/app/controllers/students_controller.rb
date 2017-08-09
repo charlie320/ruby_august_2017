@@ -9,10 +9,19 @@ class StudentsController < ApplicationController
   end
 
   def create
-    puts "Made it to the create method"
-    @id = params[:dojo_id]
-    Student.create(student_params)
-    redirect_to dojo_path(@id) # maybe change to :dojo_id from student_params
+    # puts "Made it to the create method"
+    # @id = params[:dojo_id]
+    # Student.create(student_params)
+    # redirect_to dojo_path(@id) # maybe change to :dojo_id from student_params
+
+    @student = Student.new(student_params)
+
+    if @student.save
+      redirect_to "/dojos/#{@student.dojo_id}", notice: "You have successfully created a Student!"
+    else
+      flash[:errors] = @student.errors.full_messages
+      redirect_to :back
+    end
   end
 
   def show
@@ -32,10 +41,19 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @id = params[:id]
-    @dojo_id = params[:dojo_id]
-    Student.update(@id, student_params)
-    redirect_to dojo_path(@dojo_id) # maybe change to :dojo_id from student_params
+    # @id = params[:id]
+    # @dojo_id = params[:dojo_id]
+    # Student.update(@id, student_params)
+    # redirect_to dojo_path(@dojo_id) # maybe change to :dojo_id from student_params
+
+    @student = Student.find(params[:id])
+
+    if @student.update(student_params)
+      redirect_to dojo_path(@student.dojo_id), notice: "You have successfully updated a Student!"
+    else
+      flash[:errors] = @student.errors.full_messages
+      redirect_to :back
+    end
   end
 
   def destroy

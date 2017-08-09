@@ -5,4 +5,5 @@ class Dojo < ActiveRecord::Base
   validates :branch, :city, length: { in: 2..25}
   validates :street, length: { in: 5..25}
   validates :state, length: { is: 2}
+
 end
