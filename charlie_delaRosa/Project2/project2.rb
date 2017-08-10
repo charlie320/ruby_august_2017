@@ -1,0 +1,12 @@
+class Project2
+  attr_accessor :name, :description
+
+  def initialize
+    @name = name
+    @description = description
+  end
+
+  def elevator_pitch
+    "#{name}, #{description}"
+  end
+end
