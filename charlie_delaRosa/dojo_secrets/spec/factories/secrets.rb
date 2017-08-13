@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :secret do
-    content "This a secret."
+    content "This is a secret from the factory."
     user # nil
   end
 end
