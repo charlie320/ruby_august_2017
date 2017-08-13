@@ -14,10 +14,12 @@ RSpec.describe Secret, type: :model do
       expect(@secret.user).to eq(@user)
     end
     it 'has likes' do
-      expect(@secret.user).to eq(@like.user)
+      expect(@secret.user).to eq(@like.user) # both of these lines work
+      # expect(@user.likes).to include(@like)
     end
     it 'has users through likes table' do
-      expect(@secret.like_ids).to eq(@user.like_ids)
+      expect(@secret.like_ids).to eq(@user.like_ids) #both of these lines work
+      # expect(@user.secrets_liked).to include(@secret)
     end
   end
 end
