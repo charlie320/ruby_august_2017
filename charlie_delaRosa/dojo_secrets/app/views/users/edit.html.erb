@@ -1,2 +1,19 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+
+<h1>Edit</h1>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<form class="" action='users/:id' method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="patch">
+  <label for="">Name:</label>
+  <input type="text" name="users[name]" value="">
+  <label for="">Email:</label>
+  <input type="text" name="users[email]" value="">
+  <label for="">Password:</label>
+  <input type="text" name="users[password]" value="">
+  <label for="">Password Confirmation</label>
+  <input type="text" name="users[password_confirmation]" value="">
+  <input type="submit" name="join" value="Update">
+</form>
