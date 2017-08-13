@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'users/:id' => "users#show", as: :users_show
   get 'users/:id/edit' => "users#edit", as: :users_edit
   patch 'users/:id' => "users#update", as: :users_update
+  delete 'users/:id' => "users#destroy", as: :users_destroy
 
   get 'sessions/new' => "sessions#new", as: :sessions_new
   post 'sessions' => "sessions#create", as: :sessions_create

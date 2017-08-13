@@ -1,3 +1,5 @@
 <h1><%= @user.name %></h1>
 
 <%= link_to "Edit Profile", users_edit_path(@user.id) %>
+<%= link_to "Delete Account", users_destroy_path, :confirm => "Are you sure?" %>
+<a href="#">Delete Account</a>
