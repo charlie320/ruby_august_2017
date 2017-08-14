@@ -5,7 +5,7 @@
 <form class="" action="<%= secrets_create_path %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for="">New Secret</label>
-  <textarea name="content" rows="8" cols="80"></textarea>
+  <textarea name="secret[content]" rows="8" cols="80"></textarea>
   <input type="submit" name="submit" value="Create Secret">
 </form>
 

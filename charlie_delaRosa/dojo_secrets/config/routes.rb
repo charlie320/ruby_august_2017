@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'secrets/index'
+
 
   get 'users/new' => "users#new", as: :users_new
   post 'users' => "users#create", as: :users_create
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   get 'secrets' => "secrets#index", as: :secrets
   post 'secrets' => "secrets#create", as: :secrets_create
   delete 'secrets/:id' => "secrets#destroy", as: :secrets_destroy
+
+  post 'likes' => "likes#create", as: :likes_create
+  delete 'likes' => "likes#destroy", as: :likes_destroy
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

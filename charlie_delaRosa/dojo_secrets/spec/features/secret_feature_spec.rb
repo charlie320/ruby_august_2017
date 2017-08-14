@@ -14,7 +14,7 @@ feature "secret features" do
       expect(page).to_not have_text(@secret2.content)
     end
     scenario "create a new secret" do
-      fill_in 'content', with: "My new secret"
+      fill_in 'secret[content]', with: "My new secret"
       click_button "Create Secret"
       expect(current_path).to eq("/users/#{@user.id}")
       expect(page).to have_text('My new secret')
