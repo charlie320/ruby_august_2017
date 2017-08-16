@@ -1,0 +1,76 @@
+<h3>Welcome, <%=@user[:first_name] %>!</h3>
+
+<% if current_user %>
+  <form class="edit_profile" action="/users/<%=current_user.id%>/edit" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="Edit My Profile">
+  </form>
+<% end %>
+
+<p>Here are some of the events at your state:</p>
+<div class="events_in_your_state">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Host</th>
+      <th>Action/Status</th>
+    </tr>
+
+    <% @in_state_events.each do |event| %>
+      <tr>
+        <td><%= (link_to event.name, events_show_path(event.id)) %></td>
+        <td><%= event.date %></td>
+        <td><%= event.city %></td>
+        <td><%= event.user.first_name %></td>
+        <td>Action Goes Here</td>
+        <td></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<p>Here are some of the events in other states:</p>
+<div class="events_in_other_states">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>State</th>
+      <th>Host</th>
+      <th>Action/Status</th>
+    </tr>
+
+    <% @other_state_events.each do |event| %>
+      <tr>
+        <td><%= (link_to event.name, events_show_path(event.id)) %></td>
+        <td><%= event.date %></td>
+        <td><%= event.city %></td>
+        <td><%= event.state %></td>
+        <td><%= event.user.first_name %></td>
+        <td>Action Goes Here</td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
+
+<div class="add_event">
+  <form class="add_event" action='events' method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="">Name:</label>
+    <input type="text" name="new_event[name]" id="name" value="">
+    <label for="">Date:</label>
+    <input type="date" name="new_event[date]" id="date" value="">
+    <label for="">Location:</label>
+    <input type="text" name="new_event[city]" id="city">
+    <select class="" name="new_event[state]">
+      <% IO.foreach('states.txt') do |line| %>
+        <option value="<%= line.strip %>"><%=line%></option>
+      <% end %>
+    </select>
+    <input type="submit" name="add_event" value="Add Event">
+  </form>
+</div>
