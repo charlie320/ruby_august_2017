@@ -1,1 +1,49 @@
-<h3><%= @event.name %></h3>
+<h2><%= @event.name %></h2>
+<table>
+  <tr>
+    <td>Host:</td>
+    <td><%= @event.user.first_name %></td>
+  </tr>
+  <tr>
+    <td>Date:</td>
+    <td><%= @event.date %></td>
+  </tr>
+  <tr>
+    <td>Location:</td>
+    <td><%= @event.city %></td>
+    <td><%= @event.state %></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>People who are joining the event:</td>
+    <td><%= @event_count %></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>State</th>
+  </tr>
+  <tr>
+    <td>John Attender</td>
+    <td>Attender City</td>
+    <td>AT</td>
+  </tr>
+</table>
+
+<h3>Discussion about this event</h3>
+<textarea name="attenders" rows="8" cols="40" readonly>
+  <% @comments.each do |comment| %>
+  <%= comment.content %>
+  <% end %>
+</textarea>
+
+<form class="" action='/events/<%= @event.id %>/comments' method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <h4>Add Comment:</h4>
+  <textarea name="discussion[content]" rows="8" cols="40" ></textarea>
+  <input type="submit" name="join" value="Submit Comment">
+</form>

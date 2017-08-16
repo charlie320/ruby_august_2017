@@ -30,9 +30,10 @@ Rails.application.routes.draw do
   post "sessions" => "sessions#create", as: :sessions_create # Login/registration method route
   delete "sessions/:id" => "sessions#destroy", as: :sessions_destroy # Logout method route
 
-  post "attending_events/create" => "attending_events#create", as: :attending_events_create # route to method to join an event
+  post "attending_events" => "attending_events#create", as: :attending_events_create # route to method to join an event
   delete "attending_events/:id" => "attending_events#destroy", as: :attending_events_destroy # route to cancel attendance at event
 
+  post "events/:id/comments" => "comments#create", as: :comments_create
 
   # RESTFUL ROUTES
   # get "users" => "users#index"

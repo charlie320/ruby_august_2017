@@ -23,6 +23,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # @event_count = 4 # change to event.count
+    @event_count = Event.count  #where
+    
+    @comments = Comment.where(event_id: @event.id)
   end
 
   def edit
