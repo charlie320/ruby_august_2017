@@ -60,3 +60,23 @@ Begin Building Views/Templates
 -build Welcome page
 
 rails g migration AddLocationToUsers user:references # to add field to User model
+
+## Example of link loop
+<h3>Secrets</h3>
+<% @secrets.each do |secret| %>
+  <% # Secret Content that everyone can see %>
+  <table>
+    <tr>
+      <td><%= secret.content %></td>
+    </tr>
+    <tr>
+      <td>future number of likes</td>
+      <td>
+        <% if current_user == secret.user %>
+          <% # Secret Content that only the User that created that secret can see. %>
+          <%= link_to "Delete Secret", secrets_destroy_path(secret.id), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+<% end %>

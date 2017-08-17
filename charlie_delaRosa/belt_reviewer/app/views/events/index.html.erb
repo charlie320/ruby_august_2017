@@ -7,7 +7,7 @@
   </form>
 <% end %>
 
-<p>Here are some of the events at your state:</p>
+<p>Here are some of the events in your state:</p>
 <div class="events_in_your_state">
   <table>
     <tr>
@@ -24,8 +24,17 @@
         <td><%= event.date %></td>
         <td><%= event.city %></td>
         <td><%= event.user.first_name %></td>
-        <td>Action Goes Here</td>
-        <td></td>
+        <td>
+          <% if event.user.id == current_user.id %>
+          <a href="events/<%= event.id %>/edit">Edit</a>
+          <%= link_to "Delete", events_destroy_path(event.id), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+          <% elsif event.users.exclude?(@attenders) %>
+          <%= link_to "Join", attending_events_create_path(event.id), :method => :post %>
+          <% else %>
+          Joining
+          <%= link_to "Cancel", attending_events_destroy_path(event.id), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
@@ -50,7 +59,17 @@
         <td><%= event.city %></td>
         <td><%= event.state %></td>
         <td><%= event.user.first_name %></td>
-        <td>Action Goes Here</td>
+        <td>
+          <% if event.user.id == current_user.id %>
+          <a href="events/<%= event.id %>/edit">Edit</a>
+          <%= link_to "Delete", events_destroy_path(event.id), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+          <% elsif event.users.exclude?(@attenders) %>
+          <%= link_to "Join", attending_events_create_path(event.id), :method => :post %>
+          <% else %>
+          Joining
+          <%= link_to "Cancel", attending_events_destroy_path(event.id), :method => :delete, :data => {:confirm => "Are you sure?"} %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>

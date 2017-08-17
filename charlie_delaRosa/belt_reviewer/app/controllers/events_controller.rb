@@ -4,6 +4,8 @@ class EventsController < ApplicationController
     @user = current_user
     @my_state = @user.state
 
+    @attenders = AttendingEvent.where(event_id: params[:id])
+
     @in_state_events = Event.where(state: @my_state)
     @other_state_events = Event.where.not(state: @my_state)
   end
@@ -25,17 +27,29 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event_count = Event.count  #where
     @attenders = @event.users
-    # @attenders = AttendingEvent.where(event_id: @event.id)
     @comments = Comment.where(event_id: @event.id)
   end
 
   def edit
+    @event = Event.find(params[:id])
   end
 
   def update
+    event = Event.update(current_user.id, event_params)
+    event.user = current_user
+    #p event.class
+    if event.valid?
+      redirect_to events_path
+    else
+      flash[:notice] = event.errors.full_messages
+      redirect_to events_path
+    end
   end
 
   def destroy
+    event = Event.find(params[:id])
+    event.destroy
+    redirect_to events_path
   end
 
   private
