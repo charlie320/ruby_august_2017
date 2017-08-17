@@ -23,9 +23,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    # @event_count = 4 # change to event.count
     @event_count = Event.count  #where
-    
+    @attenders = @event.users
+    # @attenders = AttendingEvent.where(event_id: @event.id)
     @comments = Comment.where(event_id: @event.id)
   end
 
